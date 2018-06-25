@@ -22,9 +22,9 @@ IE对DOM的支持：IE5一级最小限度，IE5.5-IE8一级最小限度几乎全
 　　　　1）用相应的HTML实体，如用&lt;代替小于号<；  
 　　　　2）用Cdata片段来包含JavaScript代码。在XHTML(XML)中，CData片段是文档中的特殊区域，该区域可以包含不需要解析的任意格式的文本内容。如下：  
     <script type="text/javascript">  
-        &lt;![CDATA[  
-          //javascript code  
-        ]]&gt;
+    　　&lt;![CDATA[  
+    　　　　//javascript code  
+    　　]]&gt;
     </script>  
 
 **思考：**  
