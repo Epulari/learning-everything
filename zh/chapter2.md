@@ -22,11 +22,14 @@ IE对DOM的支持：IE5一级最小限度，IE5.5-IE8一级最小限度几乎全
 　　　　1）用相应的HTML实体，如用&lt;代替小于号<；  
 　　　　2）用Cdata片段来包含JavaScript代码。在XHTML(XML)中，CData片段是文档中的特殊区域，该区域可以包含不需要解析的任意格式的文本内容。如下：  
 　　<script type="text/javascript">  
-    　　&lt;![CDATA[  
-    　　　　//javascript code  
-    　　]]&gt;  
+    　　　　&lt;![CDATA[  
+    　　　　　　//javascript code  
+    　　　　]]&gt;  
 　　</script>  
+　　14、用外部文件包含JavaScript代码：可维护、可缓存、适应未来（HTML和XHTML等的变化）。  
+　　15、不支持JavaScript时页面显示：&lt;noscript&gt;元素。当浏览器不支持脚本或浏览器支持脚本但脚本被禁用时会显示该元素中的内容。
 
 **思考：**  
 　　1、async执行时间、执行顺序不确定，因此最好只用于与其他脚本无关的脚本。并不是所有浏览器都支持defer。  
 　　2、script使用src属性指向外部域时存在安全隐患。  
+　　3、由于浏览器会先解析完不使用defer属性的&lt;script&gt;元素中的代码，然后再解析后面的内容，所以一般应该把&lt;script&gt;元素放在页面最后，即主要内容后面，&lt;/body&gt;标签前面。  
