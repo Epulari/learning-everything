@@ -1,10 +1,11 @@
 # 第二章 在HTML中使用JavaScript
 　　1、&lt;script&gt;&lt;/script&gt;的属性：  
-async: 解析DOM的同时下载脚本，然后立即执行脚本。动态脚本默认为真。  
-charset: 通过src属性指定的代码的字符集  
-defer: 解析DOM的同时下载脚本，DOM解析完成后执行脚本  
-src: 要引入的外部代码文件  
-type: 编写代码使用的脚本语言的内容内行（即MIME类型）。text/javascript和text/ecmascript已经不推荐使用，但前者一直在使用。服务器传送的其实是application/x-javascript，但html可能不会解析它。非IE可以用application/javascript和application/ecmascript。考虑到约定和兼容，目前type默认属性值依旧为text/javascript，因此可以不指定。
+*async*: 解析DOM的同时下载脚本，然后立即执行脚本。动态脚本默认为真。  
+*charset*: 通过src属性指定的代码的字符集  
+*defer*: 解析DOM的同时下载脚本，DOM解析完成后执行脚本  
+*src*: 要引入的外部代码文件  
+*type*: 编写代码使用的脚本语言的内容内行（即MIME类型）。  
+　　其中，type的值text/javascript和text/ecmascript已经不推荐使用，但前者一直在使用。服务器传送的其实是application/x-javascript，但html可能不会解析它。非IE可以用application/javascript和application/ecmascript。考虑到约定和兼容，目前type默认属性值依旧为text/javascript，因此可以不指定。  
 　　2、async/defer:bool，前者指示浏览器是否在允许的情况下异步执行该脚本；后者被设定用来通知浏览器该脚本将在文档完成解析后，触发DOMContentLoaded事件前执行。都对内联脚本无作用（即没有src属性的脚步）。  
 　　3、一般理解，XHTML是更严格的HTML，编写更加规范。  
 　　4、在现实当中，延迟脚本defer并不一定会按照顺序执行，也不一定会在DOMContentLoaded事件触发前执行，因此最好只包含一个延迟脚本。  
@@ -16,7 +17,7 @@ IE对DOM的支持：IE5一级最小限度，IE5.5-IE8一级最小限度几乎全
 　　9、文档对象模型（Document Object Model, DOM）是针对XML但经过扩展用于HTML的应用程序编程接口（Application Programming Interface, API）。也即提供访问和操作网页内容的方法和接口。DOM把整个页面映射为一个多层节点结构。  
 　　10、W3C（World Wide Web Consortium, 万维网联盟）：制定Web通信标准。  
 　　11、使用浏览器对象模型（Browser Object Model, BOM）可以控制浏览器显示的页面以外的部分。也即是提供与浏览器交互的方法和接口。  
-  
-**思考：**
-　　1、async执行时间、执行顺序不确定，因此最好只用于与其他脚本无关的脚本。并不是所有浏览器都支持defer。
-　　2、script使用src属性指向外部域时存在安全隐患。
+
+**思考：**  
+　　1、async执行时间、执行顺序不确定，因此最好只用于与其他脚本无关的脚本。并不是所有浏览器都支持defer。  
+　　2、script使用src属性指向外部域时存在安全隐患。  
