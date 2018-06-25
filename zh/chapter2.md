@@ -21,11 +21,11 @@ IE对DOM的支持：IE5一级最小限度，IE5.5-IE8一级最小限度几乎全
 　　13、避免在XHTML中出现JavaScript语法错误的方法有：  
 　　　　1）用相应的HTML实体，如用&lt;代替小于号<；  
 　　　　2）用Cdata片段来包含JavaScript代码。在XHTML(XML)中，CData片段是文档中的特殊区域，该区域可以包含不需要解析的任意格式的文本内容。如下：  
-    <script type="text/javascript">  
+　　<script type="text/javascript">  
     　　&lt;![CDATA[  
     　　　　//javascript code  
-    　　]]&gt;
-    </script>  
+    　　]]&gt;  
+　　</script>  
 
 **思考：**  
 　　1、async执行时间、执行顺序不确定，因此最好只用于与其他脚本无关的脚本。并不是所有浏览器都支持defer。  
