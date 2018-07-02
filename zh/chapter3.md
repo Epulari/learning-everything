@@ -21,7 +21,7 @@ function doSomething() {
 }
 ```
 　　6、关键字：ECMA-262描述的具有特定用途的字符，可用于表示控制语句的开始或结束，或用于执行特定操作等。关键字是语言保留的，不能用作标识符。  
-break    do    instanceof   typeof    case    lese    new    var    catch    finally    return    void    continue    for    switch    while    debugger    function    this    with    default    if    throw    delete    in    try
+break    do    instanceof   typeof    case    lese    new    var    catch    finally    return    void    continue    for    switch    while    debugger    function    this    with    default    if    throw    delete    in    try  
 　　7、保留字：ECMA-262描述的另一组不能用作标识符的字符，目前没有特殊用途，但可能会在将来被用作关键字。  
 　　ECMA-262第3版：  
 abstract    enum    int    short    boolean    export    interface    static    byte    extends    long    super    char    final    native    synchronized    class    float    package    throws    const    goto    private    transient    debugger    implements    protected    volatile    double    import    public  
