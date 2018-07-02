@@ -52,6 +52,12 @@ var e = "e";
 　　9、ECMAScript有5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。1种复杂数据类型：Object，它本质上是由一组无序的名值对组成的。不支持创建自定义类型的机制。数据类型具有动态性。  
 　　10、ECMAScript的语法大量借鉴了C及其他类C语言（如Java和Perl）的语法。  
 　　11、typeof操作符：检测给定变量的数据类型。  
+| 被操作值 | 返回值 |
+| -------- | ------ |
+|未定义 | "undefined"|
+|布尔值 | "boolean"|
+
+
 被操作值 | 返回值
 ---- | ----
 未定义 | "undefined"
