@@ -1,4 +1,4 @@
-#阅读与思考。
+# 阅读与思考。
 
 ## Professional JavaScript for Web Developers 3rd Edition
 JavaScript高级程序设计（第3版）：中文版。
