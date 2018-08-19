@@ -289,18 +289,76 @@ var num = -18;
 console.log(num.toString(2)); //-10010
 ```
 　　注意：在处理有符号整数时，不能访问位31，即符号位。默认情况下，ECMAScript中的所有整数都是符号整数。但依旧存在无符号整数，无符号整数只能是整数，它的第32位不再表示符号，因此其值可以更大。  
-
-
-  
-**思考：**  
-　　1、typeof和instanceof  
+　　20、按位非NOT：用波浪线~表示，返回数值的反码，其本质为操作数的负值减1。  
 ```
+var num = 10;
+console.log(-num - 1); //-11
+console.log(num.toString(2)); //1010，完整：28个0+1010
 
+var num2 = ~num //28个1+0101
+console.log(num2); //-11,本质为操作数的负值减1
+console.log(num2.toString(2)); //-1011,在ECMAScript中以二进制字符串形式输出一个负数时，看到的结果其实是负数绝对值的二进制码前面加上一个负号
 ```
-　　2、lese：。  
-　　3、debugger：。  
-　　1、with：。  
-　　1、throw：。  
-　　1、delete：。  
-　　1、in：。  
-　　1、 在第7点中的很多保留字已经被使用了。例如ES6中定义了类class。  
+　　以下操作都有两个操作数。从本质上讲，它们都是将两个数值的每一位对齐，对相同位置的两个数执行对应操作。
+　　按位与AND：&。与操作：都为1时为1，其它时候为0。  
+　　按位或OR：|。或操作：都为0时为0，其它时候为1。  
+　　按位异或XOR：^。异或操作：有一个1时为1，两个都为0或1时为0。  
+```
+var num1 = 10;
+var num2 = 15;
+console.log(num1.toString(2)); //1010
+console.log(num2.toString(2)); //1111
+
+var num = num1 & num2; //与操作
+console.log(num); //10
+console.log(num.toString(2)); //1010
+
+var num = num1 | num2; //或操作
+console.log(num); //15
+console.log(num.toString(2)); //1111
+
+var num = num1 ^ num2; //异或操作
+console.log(num); //5
+console.log(num.toString(2)); //0101
+```
+　　左移：<<。将数值的所有位向左移动指定位数，右侧多出的空位用0填充，不影响操作数的符号位。  
+　　有符号位的右移：>>。保留符号位，将数值的其他位向右移动指定位数，符号位的右侧、原数值的左侧多出的空位用0填充。  
+　　无符号位的右移：>>>。将数值的所有位向右移动指定位数，左侧多出的空位用0填充。正数的右移与有符号位的右移相同，而负数的无符号位右移后会变得很大。  
+```
+//左移
+var num1 = 10;
+console.log(num1.toString(2)); //1010
+var num2 = num1 << 5;
+console.log(num2); //320
+console.log(num2.toString(2)); //101000000
+var num3 = -10
+console.log(num3.toString(2)); //-1010
+var num4 = num3 << 5;
+console.log(num4); //-320
+console.log(num4.toString(2)); //-101000000
+
+//有符号位的右移
+var num1 = 320;
+console.log(num1.toString(2)); //101000000
+var num2 = num1 >> 5;
+console.log(num2); //10
+console.log(num2.toString(2)); //1010
+var num3 = -320;
+console.log(num3.toString(2)); //-101000000
+var num4 = num3 >> 5;
+console.log(num4); //-10
+console.log(num4.toString(2)); //-1010
+
+//无符号位的右移
+var num1 = 320;
+console.log(num1.toString(2)); //101000000
+var num2 = num1 >>> 5;
+console.log(num2); //10
+console.log(num2.toString(2)); //1010
+var num3 = -320;
+console.log(num3.toString(2)); //-101000000
+var num4 = num3 >>> 5;
+console.log(num4); //134217718
+console.log(num4.toString(2)); //111111111111111111111110110
+```
+　　21、布尔操作符。  
