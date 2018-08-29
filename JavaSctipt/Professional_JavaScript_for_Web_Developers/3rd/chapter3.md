@@ -325,7 +325,7 @@ console.log(num.toString(2)); //0101
 　　有符号位的右移：>>。保留符号位，将数值的其他位向右移动指定位数，符号位的右侧、原数值的左侧多出的空位用0填充。  
 　　无符号位的右移：>>>。将数值的所有位向右移动指定位数，左侧多出的空位用0填充。正数的右移与有符号位的右移相同，而负数的无符号位右移后会变得很大。  
 ```
-//左移
+//左移 <<
 var num1 = 10;
 console.log(num1.toString(2)); //1010
 var num2 = num1 << 5;
@@ -337,7 +337,7 @@ var num4 = num3 << 5;
 console.log(num4); //-320
 console.log(num4.toString(2)); //-101000000
 
-//有符号位的右移
+//有符号位的右移 >>
 var num1 = 320;
 console.log(num1.toString(2)); //101000000
 var num2 = num1 >> 5;
@@ -349,7 +349,7 @@ var num4 = num3 >> 5;
 console.log(num4); //-10
 console.log(num4.toString(2)); //-1010
 
-//无符号位的右移
+//无符号位的右移 >>>
 var num1 = 320;
 console.log(num1.toString(2)); //101000000
 var num2 = num1 >>> 5;
@@ -361,4 +361,292 @@ var num4 = num3 >>> 5;
 console.log(num4); //134217718
 console.log(num4.toString(2)); //111111111111111111111110110
 ```
-　　21、布尔操作符。  
+　　21、布尔操作符：逻辑非、逻辑与、逻辑或。逻辑操作中的第一个操作数不能是未定义的值。  
+　　逻辑非：！。应用于ECMAScript中的任何值。首先将它的操作数转换为一个布尔值，然后求反。因此求一个值的布尔值可以使用Boolean()转型函数，也可以使用两次逻辑非操作，这两种操作的结果相同。  
+　　逻辑与：&&，有两个操作数。只要有一个为假则为假。如果有一个操作数不是布尔值，则不一定返回布尔值，具体看下面代码。逻辑与操作属于短路操作，即如果第一个操作数能够决定结果，则不会对第二个操作数求值。  
+　　逻辑或：||，有两个操作数。只要有一个为真则为真。如果有一个操作数不是布尔值，则不一定返回布尔值，具体看下面代码。逻辑与或操作属于短路操作，即如果第一个操作数能够决定结果，则不会对第二个操作数求值。可以使用逻辑或来避免变量赋为null或undefined值。  
+
+```
+//逻辑非 !
+//操作原则
+console.log(!{name: 'Ep'}); //操作数是对象，返回false
+console.log(!""); //操作数是空字符串，返回true
+console.log(!"a"); //操作数是非空字符串，返回false
+console.log(!0); //true
+console.log(!2); //操作数是任意非0数值(包括Infinity)，返回false
+console.log(!Infinity); //false
+console.log(!null); //true
+console.log(!NaN); //true
+console.log(!undefined); //true
+//求值对应的布尔值
+console.log(!!NaN); //求NaN的布尔值，为false
+console.log(!!undefined); //求undefined的布尔值，为false
+
+//逻辑与 &&
+console.log({name: 'Ep'} && 0); //0 如果第一个操作数是对象，则返回第二个操作数
+console.log({name: 'Ep'} && ""); //返回空 如果第一个操作数是对象，则返回第二个操作数
+console.log({name: 'Ep'} && "a"); //"a" 如果第一个操作数是对象，则返回第二个操作数
+console.log(0 && {name: 'Ep'}); //0 如果第二个操作数是对象，则只有在第一个操作数的求值结果为true的情况下才会返回该对象
+console.log(1 && {name: 'Ep'}); //{ name: 'Ep' } 如果第二个操作数是对象，则只有在第一个操作数的求值结果为true的情况下才会返回该对象
+console.log({name: 'Ep'} && {name: 'Epu'}); //{ name: 'Epu' } 如果两个操作数都是对象，则返回第二个操作数
+console.log(NaN && null); //如果有一个操作数是NaN，则返回NaN
+console.log(null && undefined); //如果有一个操作数是null，则返回null
+console.log(undefined && null); //如果有一个操作数是undefined，则返回undefined
+
+//逻辑或 ||
+console.log({name: 'Ep'} || 0); //{ name: 'Ep' } 如果第一个操作数是对象，则返回第一个操作数
+console.log(0 || {name: 'Ep'}); //{ name: 'Ep' } 如果第一个操作数求值结果为false，则返回第二个操作数
+console.log({name: 'Ep'} || {name: 'Epu'}); //{ name: 'Ep' } 如果两个操作数都是对象，则返回第一个操作数
+console.log(null || null); //如果两个操作数都是null，则返回null
+console.log(NaN || NaN); //如果两个操作数都是NaN，则返回NaN
+console.log(undefined || undefined); //如果两个操作数都是undefined，则返回undefined
+console.log(null || NaN); //null布尔值为false，如果第一个操作数求值结果为false，则返回第二个操作数
+console.log(NaN || undefined); //NaN布尔值为false，如果第一个操作数求值结果为false，则返回第二个操作数
+console.log(undefined || null); //undefined布尔值为false，如果第一个操作数求值结果为false，则返回第二个操作数
+```
+　　22、乘性操作符：乘法*、除法/、求模（余数）%。在操作数为非数值的情况下会使用Number()转型函数执行自动的类型转换，如空字符串被当作0。  
+```
+//乘法 *
+console.log(Number.MAX_VALUE * 2); //Infinity 超出数值范围，返回Infinity或-Infinity
+console.log(2 * NaN); //如果有一个操作数是NaN，则结果为NaN
+console.log(Infinity * 0); //如果Infinity与0相乘，则结果为NaN
+console.log(Infinity * 2); //如果Infinity与非0数值相乘，则结果为Infinity或-Infinity
+console.log(Infinity * Infinity); //Infinity
+console.log(5 * ""); //0 如果有一个操作数不是数值，则在后台调用Number()将其转换为数值，然后再应用上面的规则
+
+//除法 /
+console.log(Number.MAX_VALUE / 0.5); //Infinity 超出数值范围，返回Infinity或-Infinity
+console.log(2 / NaN); //如果有一个操作数是NaN，则结果为NaN
+console.log(Infinity / Infinity); //NaN
+console.log(0 / 0); //NaN
+console.log(5 / 0); //如果非零的有限数被零除，则结果为Infinity
+console.log(Infinity / 2); //如果Infinity被非0数除，则结果为Infinity或-Infinity
+console.log(5 / true); //5 如果有一个操作数不是数值，则在后台调用Number()将其转换为数值，然后再应用上面的规则
+
+//求模 %
+console.log(Infinity % 2); //Infinity 如果被除数是无穷大值而除数是有限大的值，则结果NaN
+console.log(2 % 0); //如果被除数是有限大的值而除数是零，则结果为NaN
+console.log(Infinity % Infinity); //NaN
+console.log(2 % Infinity); //2 如果被除数是有限大的值而除数是无穷大的值，则结果是被除数
+console.log(5 % true); //0 如果有一个操作数不是数值，则在后台调用Number()将其转换为数值，然后再应用上面的规则
+```
+　　23、加性操作符：加法操作符+，减法操作符-。  
+```
+//加法 +
+console.log(NaN + 2); //NaN 如果有一个操作数是NaN，则结果NaN
+console.log(Infinity + Infinity); //Infinity
+console.log(-Infinity + (-Infinity)); //-Infinity
+console.log(-Infinity + Infinity); //NaN
+console.log(+0 + (+0)); //+0 +可省略
+console.log(-0 + (-0)); //-0
+console.log(-0 + (+0)); //+0 +可省略
+console.log(-0 + 0); //0
+console.log("a" + "b"); //ab 如果两个操作数都是字符串，则将两者拼接
+console.log("a" + NaN); //aNaN 如果只有一个操作数是字符串，则调用toString()方法将其转换为相应字符串再拼接
+console.log("a" + 10 + 5); //a105 每个加法是独立的，从左往右依次计算
+console.log("a" + (10 + 5)); //a15 先计算括号内的
+
+//减法 -
+console.log(NaN - 2); //NaN 如果有一个操作数是NaN，则结果NaN
+console.log(Infinity - Infinity); //NaN
+console.log(-Infinity - (-Infinity)); //NaN
+console.log(-Infinity - Infinity); //-Infinity
+console.log(Infinity - (-Infinity)); //Infinity
+console.log(+0 - (+0)); //+0 +省略
+console.log(-0 - (-0)); //+0 +省略
+console.log(-0 - (+0)); //-0
+console.log(+0 - (-0)); //+0 +省略
+console.log(2 - true); //1 如果有一个操作数是字符串、布尔值、null或undefined，则先在后台调用Number()函数将其转换为数值，然后根据前面规则执行计算
+console.log("a" - "b"); //NaN 如果有一个操作数是字符串、布尔值、null或undefined，则先在后台调用Number()函数将其转换为数值，然后根据前面规则执行计算
+console.log({name: 'Ep'} - 5); //NaN 如果有一个操作数是对象，则调用对象的valueOf()方法取得表示该对象的数值，如果没有valueOf()方法，则调用其toString()方法并将得到的字符串转换为数值，然后根据前面规则执行计算
+```
+　　24、关系操作符：小于<、大于>、小于等于<=、大于等于>=。返回布尔值。  
+```
+console.log("amn" > "bdc"); //false 如果两个操作数都是字符串，则依次比较两个字符串中对应位置的每个字符的字符编码值，左边a小于右边b
+console.log("amn" > "abc"); //true 如果两个操作数都是字符串，则依次比较两个字符串中对应位置的每个字符的字符编码值，两边a相等，左边m大于右边b
+console.log("abc" > "Bcd"); //true 如果两个操作数都是字符串，则依次比较两个字符串中对应位置的每个字符的字符编码值，大写字母的编码全都小于小写字母的编码
+
+console.log("25" > "3"); //false 如果两个操作数都是字符串，则依次比较两个字符串中对应位置的每个字符的字符编码值，左边"2"的编码小于右边"3"的编码
+console.log("25" > 3); //true 如果一个操作数是数值，则将另一个操作数转换为一个数值，然后进行数值比较
+
+console.log(5 < "ab"); //false 如果一个操作数是数值，则将另一个操作数转换为一个数值，然后进行数值比较，"ab"被转换为NaN，任何操作数与NaN比较都为false
+console.log(5 >= "ab"); //false 如果一个操作数是数值，则将另一个操作数转换为一个数值，然后进行数值比较，"ab"被转换为NaN，任何操作数与NaN比较都为false
+
+console.log({name: 'Ep'} >= 5); //false 如果一个操作数是对象，则调用这个对象的valueOf()方法，如果没有该方法则调用toString()方法，然后使用前面的规则进行比较
+console.log({name: 'Ep'} <= "ab"); //true 如果一个操作数是对象，则调用这个对象的valueOf()方法，如果没有该方法则调用toString()方法，然后使用前面的规则进行比较
+
+console.log(true >= 0); //true 如果一个操作数是布尔值，则先将其转换为数值，然后进行比较
+```
+　　25、相等操作符：相等和不相等(==/!=)——先转换(强制转型)再比较，全等和不全等(===/!==)——仅比较不转换。  
+```
+console.log("amn" == 5); //false 如果一个操作数是字符串，另一个操作数是数值，先将字符串转换为数值再比较
+console.log("5" == 5); //true 如果一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法，用得到的基本类型按照前面的规则进行比较
+console.log("5" === 5); //false
+
+console.log({name: 'Ep'} == 5); //false 如果一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法，用得到的基本类型按照前面的规则进行比较
+console.log({name: 'Ep'} == {name: 'Ep'}); //false 如果两个操作数都是对象，则比较他们是不是同一个对象，即是否指向同一个对象，虽然此处两个对象内容相同，但其实是两个不同的对象
+
+console.log(undefined == null); //true 这两者不会转换成其它任何值，它们是类似的值
+console.log(undefined === null); //false 它们是不同类型的值
+
+console.log(undefined == 0); //false
+console.log(null == 0); //false
+
+console.log(NaN == undefined); //false 只要有一个操作数是NaN，则相等操作返回false
+console.log(NaN == null); //false 只要有一个操作数是NaN，则相等操作返回false
+console.log(NaN == NaN); //false 只要有一个操作数是NaN，则相等操作返回false
+console.log(NaN == "NaN"); //false 只要有一个操作数是NaN，则相等操作返回false
+console.log(NaN == 5); //false 只要有一个操作数是NaN，则相等操作返回false
+
+console.log(false == 0); //true
+console.log(false === 0); //false
+
+console.log(true == 1); //true
+console.log(true === 1); //false
+
+console.log(true == 2); //false 如果一个操作数是布尔值，则先将其转换为数值，然后进行比
+```
+　　26、条件操作符：ECMAScript中最灵活的一种操作符。  
+```
+//语法
+variable = boolean_expression ? true_value : false_value;
+//例子
+var a = (num1 > num2) ? num1 : num2;
+```
+　　27、赋值操作符：=。  
+```
+//符号赋值操作：简化赋值操作，对性能无任何影响
+var num = 1;
+num += 2;
+console.log(num); //3 加/赋值num = num + 2
+num -= 1;
+console.log(num); //2 减/赋值num = num - 1
+num *= 20;
+console.log(num); //40 乘/赋值num = num * 2
+num /= 2;
+console.log(num);// 20 除/赋值num = num / 2
+num %= 3;
+console.log(num);//2 模/赋值num = num % 2
+num <<= 4;
+console.log(num);//32 左移/赋值010-0100000 num = num << 4
+num >>= 2;
+console.log(num);//8 有右移符号/赋值0100000-01000 num = num >> 2
+num >>>= 2;
+console.log(num);//2 无右移符号/赋值01000-010 num = num >>>2
+```
+　　28、逗号操作符：在一条语句中执行多个操作。  
+```
+var num1 = 1, num2 = 2, num3; //逗号操作符多用于声明多个变量
+
+var num = (0, 1, 2);
+console.log(num); //2 逗号操作符用于赋值，其总返回表达式中的最后一项
+```
+　　29、语句：也称为控制流语句。定义了ECMAScript中的主要语法，通常使用一或多个关键字来完成给定任务。  
+　　if语句。  
+　　do-while语句：后测试循环语句，即只有在循环体中的代码执行后，才会测试出口条件，即循环体内的代码至少会被执行一次。  
+　　while语句：前测试循环语句，即在循环体内的代码被执行前，就会对出口条件求值。  
+　　for语句：前测试循环语句，具有在执行循环之前初始化变量和定义循环后要执行的代码的能力。使用while循环做不到的，使用for循环也做不到  
+　　for-in语句：精准的迭代语句，可以用来枚举对象的属性。ECMAScript对象的属性没有顺序，因此输出的属性名的顺序是不可预测的。如果表示要迭代的对象的变量值为null或undefined，会抛出错误，在ECMAScript5中不再抛出错误，而是不执行循环体。因此在执行该语句之前建议检测对象的值。  
+　　label语句：在代码中添加标签，以便将来使用。加标签的语句一般都与for语句等循环语句配合使用。  
+　　break和continue语句：在循环中精确地控制代码的执行。break语句会立即退出循环，强制继续执行循环后的语句。continue语句会立即退出循环，从循环的顶部继续执行。  
+　　with语句：将代码的作用域设置到一个特定的对象中。其目的主要是为了简化多次编写同一个对象的工作。严格模式下不允许使用。大量使用with语句会导致性能下降，同时会给调试代码造成困难，因此在开发大型应用程序时不建议使用with语句。  
+　　switch语句：流控制语句。switch语句中可以使用任何数据类型，无论是字符串，还是对象都没有问题；每个case的值不一定是常量，可以是变量，甚至是表达式。switch语句在比较值时使用的是全等操作符，因此不会发生类型转换。  
+```
+//省略for循环的三个表达式，创建无限循环
+for (;;) {
+    //coding
+}
+
+//只给出控制表达式实际上就把for循环转换为了while循环
+var i, count;
+for (; i < count;) {
+    //coding
+}
+
+
+//label语句的语法
+label: statement
+
+//start标签可以在将来由break或continue语句引用
+start: for (var i = 0; i < count; i++) {
+    alert(i);
+}
+
+//该循环正常执行应该是外部10次内部10次共100次
+//内部循环中的break带了一个参数：要返回到的标签
+//该标签的结果导致break语句不仅退出内部循环而且退出外部循环
+//因此执行完break后该循环就结束了，返回的正好是i和j都是2时，即num为22
+var num = 0;
+outermost: //该label表示外部的for语句
+for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+        if (i == 2 && j == 2) {
+            break outermost;
+        }
+        num++;
+    }
+}
+console.log(num); //22
+
+//该循环正常执行应该是外部10次内部10次共100次
+//内部循环中的continue带了一个参数：要返回到的标签
+//该标签的结果导致continue语句退出内部循环而执行外部循环
+//因此内部循环少执行了8次，则num为92
+var num = 0;
+outermost: //该label表示外部的for语句
+for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+        if (i == 2 && j == 2) {
+            continue outermost;
+        }
+        num++;
+    }
+}
+console.log(num); //92
+
+
+//with语句的语法
+with (expression) statement;
+
+//通常写法
+var a = he.search.substring(1);
+var b = he.hostname;
+var c = he.href;
+//使用with语句改写：使用with语句关联he对象
+//在with语句的代码块内部，每个变量首先被认为是一个局部变量
+//如果在局部环境中找不到该变量的定义，就会查询he对象中是否有同名的属性
+//如果发现了同名属性，则以he对象属性的值作为变量的值
+with(he) {
+    var a = search.substring(1);
+    var b = hostname;
+    var c = href;
+}
+
+
+//swith语句
+switch (i) {
+    case 1:
+        break;
+    /*合并两种情形*/
+    case 2:
+    case 3:
+        break;
+    /*执行完当前条件的语句后继续执行下一条件的语句*/
+    case 4:
+        //coding
+    case 5:
+        break;
+    default:
+        break;
+}
+```
+　　30、函数：函数对任何语言来说都是一个核心的概念。ECMAScript中的函数在定义时不必指定是否返回值，任何函数在任何时候都可以通过return语句后跟要返回的值来实现返回值，当return语句不带任何返回值时，函数在停止执行后将返回undefined值。严格模式下，不能把函数或者参数命名为eval或arguments，不能出现两个命名参数同名的情况。  
+　　参数：ECMAScript中的参数在内部是用一个数组来表示的，函数接收到的始终是这个数组，而不关心数组中包含哪些参数。在函数体内部可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每个参数。但是，arguments对象知识与数组类似，它并不是Array的实例。ECMAScript中的所有参数传递的都是值，不可能通过引用传递参数。  
+　　没有重载：根据上面对参数的分析可以知道，ECMAScript函数没有签名，因此其参数是由包含零或多个值的数组来表示的，而没有函数签名，不能实现传统意义的重载。因此，如果定义了两个名字相同的函数，则改名字只属于后定义的函数。而通过检查传入函数中的参数的类型和数量并作出不同的反应，可以模仿方法的重载。  
+```
+function test(num1, num2) {
+    arguments[1] = 10;
+    console.log(num2); //10 前面重写第二个参数，num2的值也随之修改，arguments[i]和numi的内存空间是相互独立的，但它们的值是同步的
+}
+test(0, 1);
+```
