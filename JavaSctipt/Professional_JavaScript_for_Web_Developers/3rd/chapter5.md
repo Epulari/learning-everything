@@ -862,6 +862,7 @@ selectForm(2, 10);
 var arr = ["a", "b", "c", "d", "e"];
 arr[selectForm(0, arr.length - 1)];
 ```
+
 属性 | 说明
 ---- | ----
 Math.abs(num) | 返回num的绝对值
@@ -876,3 +877,5 @@ Math.atan2(y, x) | 返回y/x的反正切值
 Math.cos(x, power) | 返回x的余弦值
 Math.sin(x) | 返回x的正弦值
 Math.tan(x) | 返回x的正切值
+
+　　46、构造函数本身就是一个函数，只不过该函数是出于创建新对象的目的而定义的。  
