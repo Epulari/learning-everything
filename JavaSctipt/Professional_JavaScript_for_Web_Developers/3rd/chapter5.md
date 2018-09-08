@@ -607,6 +607,7 @@ console.log(str.charCodeAt(1)); //101 字符串中位置1的字符编码
 console.log(str[1]); //e 不是每种浏览器都支持该方法
 ```
 　　34、基于子字符串创建新字符串的方法：slice()、substr()、substring()。参数：起始位置(含)，结束位置(不含)/返回的字符个数(substr)。如果第二个参数为空则输出到字符串结束。这些方法都不改变原字符串。  
+
 序号 | 方法 | slice() | substr() | substring()
 ---- | ---- | ---- | ---- | ----
 0 | 功能 | 基于子字符串创建新字符串 | 基于子字符串创建新字符串 | 基于子字符串创建新字符串
@@ -770,6 +771,7 @@ eval("var a = 'hello';");
 console.log(a); //a定义在eval()内，但外部依旧可以访问，但严格模式下报错
 ```
 　　43、Global对象的属性：特殊值undefined、NaN/Infinity、所有原生引用类型的构造函数如Object和Function。且ECMAScript5明确禁止给三个特殊值赋值。  
+
 属性 | 说明
 ---- | ----
 undefined | 特殊值undefined
@@ -790,6 +792,7 @@ ReferenceError | 构造函数ReferenceError
 SyntaxError | 构造函数SyntaxError
 TypeError | 构造函数TypeError
 URIError | 构造函数URIError
+
 　　44、window对象：ECMAScript没有明确指出如何直接访问Global对象，但Web浏览器都是将这个全局对象作为window对象的一部分加以实现的。因此在全局作用域中声明的所有变量和函数都成了window对象的属性。另一种取得Global对象的方法是使用下面的代码：代码创建了一个立即调用的函数表达式，返回this值，在没有明确指定this值的情况下，this值等于Global对象。像这样通过简单地返回this值来取得Global对象，在任何执行环境中都是可行的。  
 ```
 var global = function() {
@@ -798,6 +801,7 @@ var global = function() {
 ```
 　　45、Match对象：保存数学公式和信息的公共位置。  
 　　Match对象的属性：  
+
 属性 | 说明
 ---- | ----
 Math.E | 自然对数的底数，即常量e的值
