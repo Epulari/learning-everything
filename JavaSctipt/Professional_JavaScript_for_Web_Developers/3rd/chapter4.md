@@ -135,7 +135,7 @@ console.log(i); //10
 function problem() {
     var objA = new Object();
     var objA = new Object();
-    
+
     objA.someotheobject = objB;
     objB.anotherobject = objA;
 }
