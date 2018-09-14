@@ -417,6 +417,29 @@ console.log(func4(10, 10)); //20 即使func1与函数无关了，但func4也还�
 ```
 　　26、没有重载：在书3.7.2，文档chapter3的30中简单提到了没有重载的概念。上面讲到，Function的本质是对象，因而将函数名想象为指针，那么，当定义了一个变量，变量指向一个函数，而对这个变量再次声明一个同名函数，那么这个变量就指向这个新的同名函数，而与旧的函数无关了。前面也提到过如果模拟函数重载：定义一个没有明确指定参数的函数，获取函数内置参数arguments的长度或内容，使用switch语句或者if语句进入对应的条件。  
 　　函数本身也可以作为值来使用，因此它不仅可以像传递参数一样把一个函数传递给另一个函数（即访问函数的指针而不执行函数，必须去掉函数名后面的括号），也可以将一个函数作为另一个函数的结果返回。  
+```
+//参数：一个属性名，根据这个属性名来进行排序
+function createComparisonFunction(propertyName) {
+    return function(object1, object2) { //匿名函数传给sort()方法，参数为要比较的值
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+
+        if(value1 < value2) {
+            return -1;
+        } else if (value1 > value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+
+var data = [{name: "Z", age: 18}, {name: "N", age: 19}];
+data.sort(createComparisonFunction("name"));
+console.log(data); //[ { name: 'N', age: 19 }, { name: 'Z', age: 18 } ]
+data.sort(createComparisonFunction("age"));
+console.log(data); //[ { name: 'Z', age: 18 }, { name: 'N', age: 19 } ]
+```
 　　27、在函数内部，有两个特殊的对象：arguments和this。还有另一个属性caller。
 　　arguments在前面提到过，它是一个类数组对象，包含着传入函数中的所有参数，它还有一个名叫callee的属性，这是一个指针，指向拥有这个arguments对象的函数。在使用递归方法写函数时，返回值为函数，这时arguments.callee()就可以代替函数名，因而当函数名修改后不用再修改函数内容。严格模式下会报错。  
 ```
