@@ -1,0 +1,32 @@
+.ulpic {
+    list-style: none;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.ulpic li {
+    height: 160px;
+    width: 160px;
+    float: left;
+    position: relative;
+    background-image: url("../timg.jpg");
+    background-size: 100% 100%;
+    margin: 0 15px 5px 0;
+    padding: 0;
+}
+
+.picturename{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: black;
+    background: rgba(245, 245, 220, .5);
+    z-index: 300;
+    text-align: center;
+}
+.picchange {
+    height: 156px !important;
+    width: 156px !important;
+    border:2px solid red;
+}

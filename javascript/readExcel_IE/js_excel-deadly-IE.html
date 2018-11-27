@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script type="text/javascript">
+    function ReadExcel() {
+     var tempStr = "";
+           //Get the value of the file path
+           var filePath = document.getElementById("upfile").value;
+           //Create an instance of an operating EXCEL application
+           var oXL = new ActiveXObject("Excel.application");
+           //Open the excel file for the specified path
+           var oWB = oXL.Workbooks.open(filePath);
+           //Operate the first sheet (from the beginning, not zero)
+           oWB.worksheets(1).select();
+           var oSheet = oWB.ActiveSheet;
+           //The number of rows used
+           var rows =  oSheet .usedrange.rows.count;
+           //Read the value of each cell, note that it starts from 1
+           try {
+            for (var i = 1; i <= rows; i++) {
+             if (oSheet.Cells(i, 1).value == "null" || oSheet.Cells(i, 2).value == "null")
+              break;
+            var a = oSheet.Cells(i, 1).value.toString() == "undefined" ? "": oSheet.Cells(i, 1).value;
+            tempStr += (" " + oSheet.Cells(i, 1).value + " " + oSheet.Cells(i, 2).value + " " + oSheet.Cells(i, 3).value + "\n");
+          }
+        }
+        catch(e) {
+          document.getElementById("txtArea").value = tempStr;
+        }
+        document.getElementById("txtArea").value = tempStr;
+           //Exit the instance object of the operation excel
+           oXL.Application.Quit();
+           //Manually call the garbage collector
+           CollectGarbage();
+          }
+  </script>
+ </head>
+
+ <body>
+  <input type="file" id="upfile" /><input type="button" onclick="ReadExcel();" value="read">
+<br>
+<textarea id="txtArea" cols=50 rows=10></textarea>
+ </body>
+</html>

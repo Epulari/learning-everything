@@ -1,0 +1,10 @@
+.test {
+    width: 100px;
+    height: 100px;
+}
+.color1 {
+    background-color: rgba(205, 245, 220, .8)
+}
+.change {
+    background-color: rgba(230, 224, 194, .8)
+}

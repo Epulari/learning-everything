@@ -1,0 +1,29 @@
+.range_picture {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    left: 200px;
+    top: 0;
+    margin: 50px 0 0 50px;
+    background-color: aquamarine;
+}
+
+.real_position_div {
+    left: 200px;
+}
+
+.compare_position_div {
+    left: 610px;
+}
+
+.img_picture{
+    height: 100%;
+    width: 100%;
+}
+
+.point_picture {
+    position: absolute;
+    width: 25px;
+    cursor: pointer;
+    z-index: 2;
+}

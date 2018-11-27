@@ -1,0 +1,76 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title>Untitled Page</title>
+</head>
+<script language="javascript" type="text/javascript">
+function toWeb(fileName) {
+    rstArray = importXLS(fileName);
+    rstArrayUnique = rstUnique(rstArray);//Delete duplicate rows
+}
+
+function importXLS(fileName) {
+    var excelCon;
+    excelCon = new ActiveXObject("ADODB.Connection");
+    excelCon.Provider = "Microsoft.Jet.OLEDB.4.0; Persist Security Info = False;";
+    excelCon.ConnectionString = "Data Source=" + fileName + ";Extended Properties='Excel 8.0; HDR=NO;IMEX=2'" ;
+    excelCon.CursorLocation = 1;//adUseNoe
+    excelCon.Open;
+    var strQueryExcel;
+    //var strSheetName = "Sheet2$";
+    var rsTemp = new ActiveXObject("ADODB.Recordset");//hold a set of records from a database table
+    rsTemp = excelCon.OpenSchema(20);//return Recordset
+	var rst = new Array();
+    var strTable;
+    while (!rsTemp.EOF)//end of file
+    {
+        if (rsTemp("TABLE_TYPE") == "TABLE") {
+            rsExcel = new ActiveXObject("ADODB.Recordset");
+            strQueryExcel = "SELECT * FROM [" + rsTemp("TABLE_NAME") + "]";
+            rsExcel.ActiveConnection = excelCon;
+            rsExcel.Open(strQueryExcel);
+            strTable=rsTemp("TABLE_NAME")+"table_content<br><table id='excelTable' border='1' cellspacing='0' cellpadding='0'>";//style='VISIBILITY:hidden'
+            for (i = 0; i < rsExcel.Fields.Count;i++) {
+                strTable = strTable+"<td>" + rsExcel.Fields(i).name + "</td>";
+            }
+            do {
+                strTable = strTable + "<tr>";
+                var rst_i = new Array();
+                for(i = 3; i < rsExcel.Fields.Count; i++) {
+                    strTable=strTable + "<td>" + rsExcel.Fields(i).value + "</td>";
+                    rst_i.push(rsExcel.Fields(i).value);
+                }
+
+                strTable=strTable + "</tr>";
+                rst.push(rst_i);
+                rsExcel.MoveNext;
+            }while(!rsExcel.EOF);
+
+        }
+        document.write(strTable + "</table><br>")
+        rsExcel = null;
+        rsTemp.MoveNext;
+    }
+    excelCon.Close;
+    excelCon = null;
+    rsExcel = null;
+    return rst;
+}
+
+function rstUnique(arr) {
+    var result = [], hash = {};
+    for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+        if (!hash[elem]) {
+            result.push(elem);
+            hash[elem] = true;
+        }
+    }
+    return result;
+}
+
+</script>
+<body>
+<input type="file" id="file_open" />
+<input type="button" id="button_file_open" value="import_file" onClick="if(file_open.value=='')alert('select a file');else toWeb(file_open.value)" />
+</body>
+</html>

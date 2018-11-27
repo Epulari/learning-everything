@@ -1,0 +1,28 @@
+.emergebox, .emergebox_dom {
+	background:white;
+	height:180px;
+	width:180px;
+	position:relative;
+	overflow:hidden;
+	text-align:center;
+}
+.emergecontent, .emergebox_dom h2 {
+	position:absolute;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	width:100%;
+	opacity:0.5;
+	background:black;
+	color:white;
+	left:0;
+	bottom:0;
+	margin:0;
+	padding:0;
+	font-size:12px
+}
+.emergebox img, .emergebox_dom img{
+	height:180px;
+	width:180px;
+}
+
