@@ -1,10 +1,3 @@
-# Reading and Thinking
-**All code and results in the documentation are run under sublime text3 + node.js v8.10.0.**
-### Professional JavaScript for Web Developers 3rd Edition
-JavaScript高级程序设计（第3版）：中文版。
-### TCP/IP Illustrated, Volume 1: The Protocols
-TCP/IP详解 卷1：协议：中文版。
-
 # csharp_function
 ### 1.OperateFile
 操作文件：创建 删除 查找并打开 移动 复制 重命名 追加内容
