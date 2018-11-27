@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue-Dance", "Queue-Dance\Queue-Dance.csproj", "{4C49D0B4-4281-4471-80EC-251D7492DBF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C49D0B4-4281-4471-80EC-251D7492DBF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C49D0B4-4281-4471-80EC-251D7492DBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C49D0B4-4281-4471-80EC-251D7492DBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C49D0B4-4281-4471-80EC-251D7492DBF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20E59BAD-6815-4EBB-9588-78B0FF1E9C47}
+	EndGlobalSection
+EndGlobal

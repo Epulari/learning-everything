@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayRecursion-TowersOfHanoi", "ArrayRecursion-TowersOfHanoi\ArrayRecursion-TowersOfHanoi.csproj", "{ADB87379-20DE-446F-9745-6ABA01C80B20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADB87379-20DE-446F-9745-6ABA01C80B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB87379-20DE-446F-9745-6ABA01C80B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB87379-20DE-446F-9745-6ABA01C80B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB87379-20DE-446F-9745-6ABA01C80B20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01E3D8E1-96FE-427F-82F3-FD6C6D138D05}
+	EndGlobalSection
+EndGlobal

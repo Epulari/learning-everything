@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedStack-RearrangementOfTrainCarriages", "LinkedStack-RearrangementOfTrainCarriages\LinkedStack-RearrangementOfTrainCarriages.csproj", "{268E5FB5-B8A4-4F23-8BE6-789F94C4D7B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{268E5FB5-B8A4-4F23-8BE6-789F94C4D7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268E5FB5-B8A4-4F23-8BE6-789F94C4D7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268E5FB5-B8A4-4F23-8BE6-789F94C4D7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268E5FB5-B8A4-4F23-8BE6-789F94C4D7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {278E9C98-8A84-406F-8371-21B192871DB5}
+	EndGlobalSection
+EndGlobal
