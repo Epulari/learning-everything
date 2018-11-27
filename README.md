@@ -1,5 +1,6 @@
 # csharp_function
-***
+---
+---
 ## 1.OperateFile
 操作文件：创建 删除 查找并打开 移动 复制 重命名 追加内容
 ## 2.OperateDirectory
@@ -14,7 +15,8 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 模拟手算m^n的实现方法
 
 # javascript function
-***
+---
+---
 ### 1.word_follow_mouse  
 ![word_follow_mouse](javascript/word_follow_mouse/word_follow_mouse.gif)
 ## 2.editDIV_and_limitnumber  
@@ -29,6 +31,8 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 ![readExcel_IE](javascript/readExcel_IE/readExcel_IE.gif)
 
 # csharp-data_structure_basis
+---
+---
 ## 1.问题描述
 　　有一个学生表，以升序的方式存储着N位学生的成绩，表头分别为学号、姓名、考试成绩，根据这些学生成绩编写一个学生成绩管理系统。
 ### 基本要求
