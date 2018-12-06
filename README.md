@@ -1,6 +1,4 @@
 # csharp_function
----
----
 ## 1.OperateFile
 操作文件：创建 删除 查找并打开 移动 复制 重命名 追加内容
 ## 2.OperateDirectory
@@ -15,8 +13,6 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 模拟手算m^n的实现方法
 
 # javascript function
----
----
 ### 1.word_follow_mouse  
 ![word_follow_mouse](javascript/word_follow_mouse/word_follow_mouse.gif)
 ## 2.editDIV_and_limitnumber  
@@ -31,8 +27,6 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 ![readExcel_IE](javascript/readExcel_IE/readExcel_IE.gif)
 
 # csharp-data_structure_basis
----
----
 ## 1.问题描述
 　　有一个学生表，以升序的方式存储着N位学生的成绩，表头分别为学号、姓名、考试成绩，根据这些学生成绩编写一个学生成绩管理系统。
 ### 基本要求
@@ -52,7 +46,7 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 
 ## 3.问题描述
 　　一列货运列车共有n节车厢，每节车厢将停放在不同的车站。假定n个车站的编号分别为1-n，货运列车按照第n站至第1站的次序经过这些车站。车厢的编号与它们的目的地相同。为了便于从列车上卸掉相应的车厢，必须重新排列车厢，使各车厢从前至后按编号1-n的次序排列。当所有的车厢都按照这种次序排列时，在每个车站只需要卸掉最后一节车厢即可。我们在一个转轨站李完成车厢的重排工作，在转轨站中有一个入轨、一个出轨和k个缓冲铁轨（位于入轨和出轨之间）。下图给出了一个转轨站，其中有k=3个缓冲铁轨H1、H2、H3。开始时，n节车厢的火车从入轨处进入转轨站，转轨结束时各车厢从右到左按编号1至编号n的次序离开转轨站（通过出轨处）。在下图中，n=9，车厢从后至前的初始次序为581742963，出轨后为按要求的次序重新排列为987654321。      
-　　![RearrangementOfTrainCarriages](https://github.com/Epulari/csharp-data_structure_basis/raw/master/LinkedStack-RearrangementOfTrainCarriages/RearrangementOfTrainCarriages.png)
+　　![RearrangementOfTrainCarriages](data_structure_basis/csharp/LinkedStack-RearrangementOfTrainCarriages/RearrangementOfTrainCarriages.png)
 ### 基本要求
 　　编写算法实现火车车厢的重排。      
 　　编写程序模拟上图具有9节车厢的火车入轨和出轨的过程。
@@ -97,7 +91,7 @@ linq方法操作xml文件：创建xml文件 读取xml文件 查找节点或属�
 　　为了对数据文件中的记录进行查询、修改和删除操作，首先要定位所要操作的记录。定位的第一种方式就是从文件的第一条记录开始找，直到发现需要的记录。这也就是顺序访问。在这种情况下，如果记录位于文件的末尾，搜索过程将十分耗时。因此必须寻找一种新的方法，以使访问记录能通过指定的键值来完成。      
 　　想到在日常生活中，人们常会借助各种索引（如图书资料索引、词典索引等）快速找到所需要的东西，同样也可以为数据文件建立索引表。索引表由关键字及与记录一起存放的物理地址两项组成。如下右图所示，索引应该按升序排序键值段中的值，为了访问一条特定的记录，需要指定它的键值。如果键值存在于索引表中，就提取相应条目的物理位置，在获取了记录的物理位置后，就可以直接从文件中访问那条记录了。假设需要访问职工号为38号的记录，需要搜索索引表来寻找这个键值，并获取相应的物理地址105，这样就可以从物理地址105处开始访问所要读取的记录了。      
 　　索引表一般和数据文件同时写入到磁盘中，这样当访问数据时就可以使用索引。当由新记录插入或删除文件时，索引也会同时更新。当文件被打开执行插入、删除或搜索操作时，索引就会被载入到主内存中。要保存在主内存中，索引必须按特定的数据结构来存储。      
-　　![image](https://github.com/Epulari/csharp-data_structure_basis/raw/master/BinaryTree-QuickSearchDisk/QuickSearchDisk.png)
+　　![image](data_structure_basis/csharp/BinaryTree-QuickSearchDisk/QuickSearchDisk.png)
 ### 基本要求
 　　选择一种数据结构在内存中存放索引表，通过该数据结构能高效地插入、删除和搜索索引表。      
 　　输入任一关键字，显示处查询该关键字的路径。
